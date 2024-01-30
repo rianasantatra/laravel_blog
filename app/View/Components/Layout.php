@@ -11,9 +11,9 @@ class Layout extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(public  string $title = '')
     {
-        //
+        $this->title = config('app.name') . ($title ? " | $title" : '');
     }
 
     /**
@@ -21,6 +21,6 @@ class Layout extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.layout');
+        return view('layouts.default');
     }
 }
