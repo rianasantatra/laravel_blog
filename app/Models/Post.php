@@ -10,6 +10,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $with = ['category'];
+
     public function getRouteKeyName()
     {
         return 'slug';
