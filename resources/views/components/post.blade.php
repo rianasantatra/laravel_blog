@@ -1,4 +1,4 @@
-@props(['post', 'list' => false])
+@props(["post", "list" => false])
 
 {{-- Début du post --}}
 <article class="flex flex-col lg:flex-row pb-10 md:pb-16 border-b">
@@ -10,12 +10,17 @@
             <a href="" class="underline font-bold text-slate-900 text-lg">{{ $post->category->name }}</a>
         @endif
         <h1 class="font-bold text-slate-900 text-3xl lg:text-5xl leading-tight">{{ $post->title }}</h1>
-        <ul class="flex flex-wrap gap-2">
-            <li><a href="" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">Tag
-                    1</a></li>
-            <li><a href="" class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">Tag
-                    2</a></li>
-        </ul>
+        @if ($post->tags->isNotEmpty())
+            <ul class="flex flex-wrap gap-2">
+                @foreach ($post->tags as $tag)
+                    <li>
+                        <a href=""
+                            class="px-3 py-1 bg-indigo-700 text-indigo-50 rounded-full text-sm">{{ $tag->name }}</a>
+                    </li>
+                @endforeach
+            </ul>
+        @endif
+
         <p class="text-xl lg:text-2xl text-slate-600">
             @if ($list)
                 {{ $post->excerpt }}
@@ -24,7 +29,7 @@
             @endif
         </p>
         @if ($list)
-            <a href="{{ route('posts.show', ['post' => $post]) }}"
+            <a href="{{ route("posts.show", ["post" => $post]) }}"
                 class="flex items-center py-5 px-7 font-semibold bg-slate-900 transition text-slate-50 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6 mr-2">
@@ -35,7 +40,7 @@
             </a>
         @else
             <time class="text-xs text-slate-400"
-                datetime="{{ $post->created_at }}">{{ $post->created_at->format('d/m/Y H:i:s') }}</time>
+                datetime="{{ $post->created_at }}">{{ $post->created_at->format("d/m/Y H:i:s") }}</time>
         @endif
     </div>
 </article>
