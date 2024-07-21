@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }}</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(["resources/css/app.css", "resources/js/app.js"])
 </head>
 
 <body class="antialiased pt-10 pb-16 md:pb-32">
@@ -16,7 +16,7 @@
         {{-- Header --}}
         <header class="flex justify-between items-center space-x-5 text-slate-900">
             {{-- Logo --}}
-            <a href="{{ route('index') }}">
+            <a href="{{ route("index") }}">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-8 h-8">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -24,10 +24,11 @@
                 </svg>
             </a>
             {{-- Formulaire de recherche --}}
-            <form action="{{ route('index') }}"
+            <form action="{{ route("index") }}"
                 class="pb-3 pr-2 flex items-center border-b border-b-slate-300 text-slate-300 focus-within:border-b-slate-900 focus-within:text-slate-900 transition">
-                <input id="search" value="" class="px-2 w-full outline-none leading-none placeholder-slate-400"
-                    type="search" name="search" placeholder="Rechercher un article">
+                <input id="search" value="{{ request()->search }}"
+                    class="px-2 w-full outline-none leading-none placeholder-slate-400" type="search" name="search"
+                    placeholder="Rechercher un article">
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
                         <path fill-rule="evenodd"
