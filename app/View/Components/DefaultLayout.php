@@ -2,16 +2,16 @@
 
 namespace App\View\Components;
 
-use Closure;
+use App\View\Components\AbstractLayout;
 use Illuminate\Contracts\View\View;
-use Illuminate\View\Component;
+use Closure;
 
-class Layout extends Component
+class DefaultLayout extends AbstractLayout
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(public  string $title = '')
+    public function __construct(public string $title = '')
     {
         $this->title = config('app.name') . ($title ? " | $title" : '');
     }
