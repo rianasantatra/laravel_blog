@@ -40,7 +40,7 @@
             {{-- Navigation --}}
             <nav x-data="{ open: false }" x-cloak class="relative">
                 <button @click="open = !open" @click.outside="if (open) open = false" @class([
-                    "w-8 h-8 flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
+                    "w-8 h-8 block rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
                     "md:hidden" => Auth::guest(),
                 ])>
                     @auth
@@ -69,11 +69,11 @@
                                 class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mon Compte</a>
                         </li>
                         <li>
-                            <a href="" @click.prevent="$refs.logout.submit()"
+                            <a href="{{ route("logout") }}" @click.prevent="$refs.logout.submit()"
                                 class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Déconnexion
                             </a>
                         </li>
-                        <form x-ref="logout" action="" method="POST" class="hidden">
+                        <form x-ref="logout" action="{{ route("logout") }}" method="POST" class="hidden">
                             @csrf
                         </form>
                     @else
