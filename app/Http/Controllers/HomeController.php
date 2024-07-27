@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
+
 // use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,7 +13,7 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(): View
     {
         return view('home.index');
     }

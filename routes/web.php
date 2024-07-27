@@ -22,7 +22,9 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->na
 Route::post('/register', [RegisterController::class, 'register']);
 // Login Route
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
 
+// Default Route
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Post Route
