@@ -71,7 +71,7 @@
                     </li>
                 </ul>
                 <ul class="hidden md:flex space-x-12 font-semibold">
-                    <li><a href="">Connexion</a></li>
+                    <li><a href="{{ route("login") }}">Connexion</a></li>
                     <li>
                         <a href="{{ route("register") }}" class="flex items-center group text-indigo-700">
                             Inscription

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
@@ -16,11 +17,15 @@ use Illuminate\Support\Facades\Route;
  * |
  */
 
+//  Register Route
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
+// Login Route
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+// Post Route
 Route::get('/', [PostController::class, 'index'])->name('index');
 Route::get('/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/categories/{category}', [PostController::class, 'postsByCategory'])->name('posts.byCategory');
