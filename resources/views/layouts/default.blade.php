@@ -44,7 +44,8 @@
                     "md:hidden" => Auth::guest(),
                 ])>
                     @auth
-                        <img src="https://via.placeholder.com/120x120" alt="profile_picture" class="h-8 w-8 rounded-full">
+                        <img src="{{ Gravatar::get(Auth::user()->email) }}" alt="profile_picture"
+                            class="h-8 w-8 rounded-full">
                     @else
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-8 h-8">
