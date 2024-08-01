@@ -69,6 +69,13 @@
                             <a href="{{ route("home") }}"
                                 class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mon Compte</a>
                         </li>
+                        @if (Auth::user()->isAdmin())
+                            <li>
+                                <a href="{{ route("admin.posts.index") }}"
+                                    class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gestion des
+                                    posts</a>
+                            </li>
+                        @endif
                         <li>
                             <a href="{{ route("logout") }}" @click.prevent="$refs.logout.submit()"
                                 class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Déconnexion

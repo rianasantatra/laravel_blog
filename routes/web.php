@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,9 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // Default Route
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::put('/home', [HomeController::class, 'update_pwd']);
+
+// Admin Route
+Route::resource('/admin/posts', AdminController::class)->except('show')->names('admin.posts');
 
 // Post Route
 Route::get('/', [PostController::class, 'index'])->name('index');
