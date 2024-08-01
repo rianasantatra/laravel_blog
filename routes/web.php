@@ -27,6 +27,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Default Route
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::put('/home', [HomeController::class, 'update_pwd']);
 
 // Post Route
 Route::get('/', [PostController::class, 'index'])->name('index');
